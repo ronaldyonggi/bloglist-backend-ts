@@ -22,7 +22,11 @@
       { "argsIgnorePattern": "^_" }
     ],
     "no-case-declarations": "off",
-    "indent": ["error", 2],
+    "indent": [
+      "error", 
+      2,
+      {"SwitchCase": 1}
+    ],
     "linebreak-style": ["error", "unix"]
   },
   "parser": "@typescript-eslint/parser",
