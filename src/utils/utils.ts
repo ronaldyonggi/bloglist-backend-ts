@@ -22,7 +22,7 @@ const parseNumber = (str: unknown): number => {
 };
 
 // toNewBlog type validator function
-const toNewNote = (object: unknown): NewBlog => {
+const toNewBlog = (object: unknown): NewBlog => {
   if (!object || typeof object !== 'object') {
     throw new Error('Incorrect or missing data');
   }
@@ -53,4 +53,4 @@ const toNewNote = (object: unknown): NewBlog => {
   throw new Error('Invalid input data!');
 };
 
-export default toNewNote;
+export default toNewBlog;
