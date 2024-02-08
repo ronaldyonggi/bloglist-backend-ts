@@ -5,3 +5,5 @@ export interface Blog {
   url: string,
   likes: number
 }
+
+export type NewBlog = Omit<Blog, 'id'>;
