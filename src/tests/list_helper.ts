@@ -5,6 +5,15 @@ const dummy = (_blogs: Blog[]) => {
   return 1;
 };
 
+const totalLikes = (blogs: Blog[]) => {
+
+  const blogsLikesReducer = (sum: number, blog: Blog) => {
+    return sum + blog.likes;
+  };
+
+  return blogs.reduce(blogsLikesReducer, 0);
+};
+
 export {
-  dummy
+  dummy, totalLikes
 };
