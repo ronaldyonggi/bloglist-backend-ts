@@ -1,4 +1,12 @@
+import express from 'express';
+import mongoose from 'mongoose';
+import logger from './utils/logger';
+import cors from 'cors';
+import config from './utils/config';
+import middleware from './utils/middleware';
+
 const app = express();
+
 // Initiate MongoDB connection
 mongoose.set('strictQuery', false);
 logger.info('connecting to', config.MONGODB_URI!);
@@ -17,3 +25,6 @@ app.use(express.json());
 app.use(middleware.requestLogger);
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);
+
+export default app;
+
