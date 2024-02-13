@@ -4,6 +4,7 @@ import logger from './utils/logger';
 import cors from 'cors';
 import config from './utils/config';
 import middleware from './utils/middleware';
+import blogsRouter from './router/blogsRouter';
 
 const app = express();
 
@@ -21,6 +22,8 @@ mongoose.connect(config.MONGODB_URI!)
 app.use(cors());
 app.use(express.static('dist'));
 app.use(express.json());
+
+app.use('/api/blogs', blogsRouter);
 
 app.use(middleware.requestLogger);
 app.use(middleware.unknownEndpoint);
