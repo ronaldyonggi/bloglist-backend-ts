@@ -26,8 +26,8 @@ describe('total likes', () => {
     ];
 
     // Validate the blog list with typescript first
-    const validatedBlog = listWithOneBlog.map(b => toNewBlog(b));
-    const result = totalLikes(validatedBlog);
+    const validatedBlogs = listWithOneBlog.map(b => toNewBlog(b));
+    const result = totalLikes(validatedBlogs);
     expect(result).toBe(5);
   });
 });
