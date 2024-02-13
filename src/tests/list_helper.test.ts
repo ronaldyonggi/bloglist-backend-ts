@@ -2,6 +2,7 @@
 import { Blog } from "../types/blog";
 import toNewBlog from "../utils/utils";
 import { dummy, totalLikes } from "./list_helper";
+import { testBlogs } from "./testBlogs";
 
 
 test('dummy returns one', () => {
@@ -29,5 +30,11 @@ describe('total likes', () => {
     const validatedBlogs = listWithOneBlog.map(b => toNewBlog(b));
     const result = totalLikes(validatedBlogs);
     expect(result).toBe(5);
+  });
+
+  test('when list has multiple blogs, equals the total likes of the blogs', () => {
+    const validatedBlogs = testBlogs.map(b => toNewBlog(b));
+    const result = totalLikes(validatedBlogs);
+    expect(result).toBe(36);
   });
 });
