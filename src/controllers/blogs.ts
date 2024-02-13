@@ -1,3 +1,7 @@
+import { NextFunction, Request, Response } from 'express';
+import BlogModel from '../models/blog';
+import toNewBlog from "../utils/utils";
+
 // GET all blogs
 const getAllBlogs = async (_req: Request, res: Response, next: NextFunction) => {
   try {
@@ -23,4 +27,9 @@ const createBlog = async (req: Request, res: Response, next: NextFunction) => {
     next(error);
   }
 
+};
+
+export {
+  getAllBlogs,
+  createBlog
 };
