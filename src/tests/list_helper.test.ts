@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { Blog } from "../types/blog";
+import { Blog, NewBlog } from "../types/blog";
 import toNewBlog from "../utils/utils";
-import { dummy, totalLikes } from "./list_helper";
+import { dummy, favoriteBlog, totalLikes } from "./list_helper";
 import { testBlogs } from "./testBlogs";
 
 
@@ -36,5 +36,19 @@ describe('total likes', () => {
     const validatedBlogs = testBlogs.map(b => toNewBlog(b));
     const result = totalLikes(validatedBlogs);
     expect(result).toBe(36);
+  });
+});
+
+describe('favorite blog', () => {
+  test('when list has multiple blogs, equals the blog with the most likes', () => {
+    const validatedBlogs = testBlogs.map(b => toNewBlog(b));
+    const result = favoriteBlog(validatedBlogs);
+    const expected : NewBlog = {
+      title: "Canonical string reduction",
+      author: "Edsger W. Dijkstra",
+      url: "http://www.cs.utexas.edu/~EWD/transcriptions/EWD08xx/EWD808.html",
+      likes: 12,
+    };
+    expect(result).toEqual(expected);
   });
 });
