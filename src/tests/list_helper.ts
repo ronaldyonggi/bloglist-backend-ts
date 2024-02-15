@@ -14,6 +14,14 @@ const totalLikes = (blogs: NewBlog[]) => {
   return blogs.reduce(blogsLikesReducer, 0);
 };
 
+const favoriteBlog = (blogs: NewBlog[]) => {
+  const blogsMostLikesReducer = (prev: NewBlog, next: NewBlog) => {
+    return prev.likes > next.likes ? prev : next;
+  };
+
+  return blogs.reduce(blogsMostLikesReducer);
+};
+
 export {
-  dummy, totalLikes
+  dummy, totalLikes, favoriteBlog
 };
