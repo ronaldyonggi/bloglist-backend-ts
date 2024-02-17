@@ -13,6 +13,13 @@ beforeEach(async () => {
   await Promise.all(promiseArray);
 });
 
+test('blogs are returned in json format', async () => {
+  await api
+    .get('/api/blogs')
+    .expect(200)
+    .expect('Content-Type', /application\/json/);
+}, 100000)
+
 afterAll(async () => {
   await mongoose.connection.close();
 });
