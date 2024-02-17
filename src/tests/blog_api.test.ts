@@ -18,7 +18,12 @@ test('blogs are returned in json format', async () => {
     .get('/api/blogs')
     .expect(200)
     .expect('Content-Type', /application\/json/);
-}, 100000)
+}, 100000);
+
+test('the number of blogs returned from GET equal to number of initial blogs', async () => {
+  const res = await api.get('/api/blogs');
+  expect(res.body).toHaveLength(initialBlogs.length);
+});
 
 afterAll(async () => {
   await mongoose.connection.close();
