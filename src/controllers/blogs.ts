@@ -33,6 +33,13 @@ blogsRouter.delete('/:id', async (req: Request, res: Response) => {
   await BlogModel.findByIdAndDelete(req.params.id);
   res.status(204).end();
 });
+
+// UPDATE a blog
+blogsRouter.put('/:id', async (req: Request, res: Response) => {
+  const requestPutBlog = ts_utils.toNewBlog(req.body);
+
+  const updatedBlog = await BlogModel.findById(req.params.id, requestPutBlog, { new: true, runValidators: true, context: 'query'});
+  res.json(updatedBlog);
 });
 
 export default blogsRouter;
