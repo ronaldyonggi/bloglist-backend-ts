@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { Request, Response, Router } from 'express';
 import BlogModel from '../models/blog';
-import toNewBlog from "../utils/utils";
+import ts_utils from "../utils/utils";
 
 const blogsRouter = Router();
 
@@ -18,7 +18,7 @@ blogsRouter.get('/', async (_req: Request, res: Response) => {
 
 // CREATE a blog
 blogsRouter.post('/', async (req: Request, res: Response) => {
-  const validatedBlog = toNewBlog(req.body);
+  const validatedBlog = ts_utils.toNewBlog(req.body);
 
   const newBlog = new BlogModel({
     ...validatedBlog
