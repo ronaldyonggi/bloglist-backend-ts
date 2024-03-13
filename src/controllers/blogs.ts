@@ -25,4 +25,11 @@ blogsRouter.post('/', (req: Request, res: Response, next: NextFunction) => {
     .catch(error => next(error));
 });
 
+// DELETE a blog
+blogsRouter.delete('/:id',  (req: Request, res: Response, next: NextFunction) => {
+  BlogModel.findByIdAndDelete(req.params.id)
+    .then(() => res.status(204).end())
+    .catch(error => next(error));
+});
+
 export default blogsRouter;
