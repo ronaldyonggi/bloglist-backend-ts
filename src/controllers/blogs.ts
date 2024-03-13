@@ -4,6 +4,11 @@ import toNewBlog from "../utils/utils";
 
 const blogsRouter = Router();
 
+/**
+ * NOTE: async error handlers are handled with the express-async-errors library
+ * so no need to use try-catch clause.
+ */
+
 // GET all blogs
 blogsRouter.get('/', async (_req: Request, res: Response) => {
   const blogs = await BlogModel.find({});
