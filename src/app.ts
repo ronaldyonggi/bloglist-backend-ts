@@ -5,6 +5,7 @@ import cors from 'cors';
 import config from './utils/config';
 import middleware from './utils/middleware';
 import blogsRouter from './controllers/blogs';
+import usersRouter from './controllers/users';
 
 const app = express();
 
@@ -25,6 +26,9 @@ app.use(express.json());
 
 // Routing for blogs
 app.use('/api/blogs', blogsRouter);
+
+// Routing for users
+app.use('/api/users', usersRouter);
 
 app.use(middleware.requestLogger);
 app.use(middleware.unknownEndpoint);
