@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { Request, Response, Router } from 'express';
 import BlogModel from '../models/blog';
-import ts_utils from "../utils/utils";
+import ts_utils from '../utils/ts_utils';
 
 const blogsRouter = Router();
 
