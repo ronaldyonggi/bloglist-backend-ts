@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response, Router } from 'express';
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import BlogModel from '../models/blog';
 import toNewBlog from "../utils/utils";
 
