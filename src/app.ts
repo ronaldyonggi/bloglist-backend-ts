@@ -4,7 +4,7 @@ import logger from './utils/logger';
 import cors from 'cors';
 import config from './utils/config';
 import middleware from './utils/middleware';
-import blogsRouter from './router/blogsRouter';
+import blogsRouter from './controllers/blogs';
 
 const app = express();
 
