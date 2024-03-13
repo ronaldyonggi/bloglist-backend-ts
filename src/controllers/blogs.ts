@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
+import { Request, Response, Router } from 'express';
 import BlogModel from '../models/blog';
 import toNewBlog from "../utils/utils";
 
