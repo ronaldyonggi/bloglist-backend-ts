@@ -21,8 +21,8 @@ const parseNumber = (str: unknown): number => {
   return str;
 };
 
-// toNewBlog type validator function
-const toNewBlog = (object: unknown): NewBlog => {
+// validateNewBlog type validator function
+const validateNewBlog = (object: unknown): NewBlog => {
   if (!object || typeof object !== 'object') {
     throw new Error('Incorrect or missing data');
   }
@@ -50,9 +50,10 @@ const toNewBlog = (object: unknown): NewBlog => {
     }
   }
 
-  throw new Error('Invalid input data!');
+  throw new Error('TypeScript validateNewBlog error: invalid input data!');
+};
 };
 
 export default {
-  toNewBlog
+  validateNewBlog,
 };
