@@ -18,7 +18,7 @@ blogsRouter.get('/', async (_req: Request, res: Response) => {
 
 // CREATE a blog
 blogsRouter.post('/', async (req: Request, res: Response) => {
-  const validatedBlog = ts_utils.toNewBlog(req.body);
+  const validatedBlog = ts_utils.validateNewBlog(req.body);
 
   const newBlog = new BlogModel({
     ...validatedBlog
@@ -36,7 +36,7 @@ blogsRouter.delete('/:id', async (req: Request, res: Response) => {
 
 // UPDATE a blog
 blogsRouter.put('/:id', async (req: Request, res: Response) => {
-  const requestPutBlog = ts_utils.toNewBlog(req.body);
+  const requestPutBlog = ts_utils.validateNewBlog(req.body);
 
   const updatedBlog = await BlogModel.findById(req.params.id, requestPutBlog, { new: true, runValidators: true, context: 'query'});
   res.json(updatedBlog);
