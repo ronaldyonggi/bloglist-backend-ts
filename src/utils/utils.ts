@@ -53,4 +53,6 @@ const toNewBlog = (object: unknown): NewBlog => {
   throw new Error('Invalid input data!');
 };
 
-export default toNewBlog;
+export default {
+  toNewBlog
+};
