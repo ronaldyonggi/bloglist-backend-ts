@@ -23,6 +23,7 @@ app.use(cors());
 app.use(express.static('dist'));
 app.use(express.json());
 
+// Routing for blogs
 app.use('/api/blogs', blogsRouter);
 
 app.use(middleware.requestLogger);
