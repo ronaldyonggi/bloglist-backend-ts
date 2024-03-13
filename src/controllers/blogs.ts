@@ -1,17 +1,19 @@
-import { NextFunction, Request, Response } from 'express';
+import { NextFunction, Request, Response, Router } from 'express';
 import BlogModel from '../models/blog';
 import toNewBlog from "../utils/utils";
 
+const blogsRouter = Router();
+
 // GET all blogs
-const getAllBlogs = (_req: Request, res: Response, next: NextFunction) => {
+blogsRouter.get('/', (_req: Request, res: Response, next: NextFunction) => {
 
   BlogModel.find({})
     .then(blogs => res.json(blogs))
     .catch(error => next(error));
-};
+});
 
 // CREATE a blog
-const createBlog = (req: Request, res: Response, next: NextFunction) => {
+blogsRouter.post('/', (req: Request, res: Response, next: NextFunction) => {
   const validatedBlog = toNewBlog(req.body);
 
   const newBlog = new BlogModel({
@@ -21,9 +23,6 @@ const createBlog = (req: Request, res: Response, next: NextFunction) => {
   newBlog.save()
     .then(savedBlog => res.json(savedBlog))
     .catch(error => next(error));
-};
+});
 
-export default {
-  getAllBlogs,
-  createBlog
-};
+export default blogsRouter;
