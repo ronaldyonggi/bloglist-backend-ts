@@ -27,3 +27,5 @@ usersRouter.post('/', async (req: Request, res: Response) => {
   const savedUser = await newUser.save();
   res.status(201).json(savedUser);
 });
+
+export default usersRouter;
